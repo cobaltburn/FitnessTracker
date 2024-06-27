@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fitness Tracker</string>
+    <string name="main">Main</string>
+    <string name="muscle_group_selection">Muscle Group Selection</string>
+    <string name="exercise_selection">Exercise Selection</string>
+
 </resources>
