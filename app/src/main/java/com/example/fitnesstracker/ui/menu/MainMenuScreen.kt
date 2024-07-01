@@ -1,12 +1,12 @@
 package com.example.fitnesstracker.ui.menu
 
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -25,7 +25,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun MainMenuScreen(
     innerPadding: PaddingValues,
     viewModel: MainMenuViewModel,
-    onNewWorkoutClick: () -> Unit
+    onNewWorkoutClick: () -> Unit,
+    onNewCameraClick: () -> Unit
 ) {
     val menuState by viewModel.menuState.collectAsState()
     LazyColumn(contentPadding = innerPadding) {
@@ -40,6 +41,14 @@ fun MainMenuScreen(
         contentAlignment = Alignment.BottomEnd
     ) {
         SmallActionButton(onClick = onNewWorkoutClick)
+    }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp),
+        contentAlignment = Alignment.BottomStart
+    ) {
+        SmallActionButton(onClick = onNewCameraClick)
     }
 }
 
@@ -60,5 +69,7 @@ fun PreviewMainMenuScreen() {
     MainMenuScreen(
         innerPadding = PaddingValues(10.dp),
         viewModel = viewModel(),
-        onNewWorkoutClick = {})
+        onNewWorkoutClick = {},
+        onNewCameraClick = {}
+    )
 }

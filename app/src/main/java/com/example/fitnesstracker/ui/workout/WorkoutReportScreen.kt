@@ -46,14 +46,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fitnesstracker.data.Exercise
 import com.example.fitnesstracker.data.ExerciseSet
+import com.example.fitnesstracker.data.WorkoutUIState
 
 @Composable
 fun WorkoutReportScreen(
+    workoutState: WorkoutUIState,
     innerPadding: PaddingValues,
     viewModel: WorkoutViewModel,
     onAddExerciseClick: () -> Unit
 ) {
-    val workoutState by viewModel.workoutState.collectAsState()
     LazyColumn(
         contentPadding = innerPadding,
     ) {
